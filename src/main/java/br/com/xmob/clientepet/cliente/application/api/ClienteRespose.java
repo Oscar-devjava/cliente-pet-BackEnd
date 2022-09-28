@@ -1,5 +1,12 @@
 package br.com.xmob.clientepet.cliente.application.api;
 
-public class ClienteRespose {
+import java.util.UUID;
 
+import lombok.Builder;
+import lombok.Value;
+
+@Value
+@Builder
+public class ClienteRespose {
+	private UUID idCliente;
 }
