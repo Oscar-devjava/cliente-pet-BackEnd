@@ -1,6 +1,5 @@
 package br.com.xmob.clientepet.cliente.application.repository;
 
-import br.com.xmob.clientepet.cliente.application.api.ClienteRespose;
 import br.com.xmob.clientepet.cliente.domain.Cliente;
 
 public interface ClienteRepository {
