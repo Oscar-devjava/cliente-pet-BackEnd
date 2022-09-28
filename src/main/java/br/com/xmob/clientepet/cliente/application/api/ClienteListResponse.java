@@ -5,9 +5,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import br.com.xmob.clientepet.cliente.domain.Cliente;
-import lombok.Value;
+import lombok.Getter;
 
-@Value
+@Getter
 public class ClienteListResponse {
 	private UUID idCliente;
 	private String nomeCompleto;
