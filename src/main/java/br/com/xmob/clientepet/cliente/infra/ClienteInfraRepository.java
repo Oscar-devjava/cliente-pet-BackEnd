@@ -1,5 +1,7 @@
 package br.com.xmob.clientepet.cliente.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.xmob.clientepet.cliente.application.repository.ClienteRepository;
@@ -19,6 +21,14 @@ public class ClienteInfraRepository implements ClienteRepository {
 		var clienteSalvo = clienteSpringDataJPARepository.save(cliente);
 		log.info("[finaliza] ClienteInfraRepository - salva");
 		return clienteSalvo;
+	}
+
+	@Override
+	public List<Cliente> buscaTodosClientes() {
+		log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
+		List<Cliente> listaClientes = clienteSpringDataJPARepository.findAll();
+		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
+		return listaClientes;
 	}
 
 }
