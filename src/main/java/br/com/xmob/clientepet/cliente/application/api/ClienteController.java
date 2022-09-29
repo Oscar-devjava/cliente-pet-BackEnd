@@ -1,6 +1,7 @@
 package br.com.xmob.clientepet.cliente.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +29,13 @@ public class ClienteController implements ClienteAPI {
 		List<ClienteListResponse> clienteList = clienteService.listaClientes();
 		log.info("[finaliza] ClienteController - getListaTodosClientes");
 		return clienteList;
+	}
+
+	@Override
+	public ClienteDetalhadoResponse getVisualizaDetalhesCliente(UUID idCliente) {
+		log.info("[inicia] ClienteController - getVisualizaDetalhesCliente");
+		log.info("[inicia] ClienteController - getVisualizaDetalhesCliente");
+		return null;
 	}
 
 }
