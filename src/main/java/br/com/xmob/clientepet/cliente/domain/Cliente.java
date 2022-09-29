@@ -58,6 +58,4 @@ public class Cliente {
 		this.dataNascimento = clienteRequest.getDataNascimento();
 		this.dataHoraDoCadastro = LocalDateTime.now();
 	}
-
-	
 }

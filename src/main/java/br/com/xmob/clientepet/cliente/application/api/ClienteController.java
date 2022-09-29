@@ -1,5 +1,7 @@
 package br.com.xmob.clientepet.cliente.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.xmob.clientepet.cliente.application.service.ClienteService;
@@ -18,6 +20,14 @@ public class ClienteController implements ClienteAPI {
 		ClienteRespose novoCliente = clienteService.criaNovoCliente(clienteRequest);
 		log.info("[finaliza] ClienteController - postCadastraNovoCliente");
 		return novoCliente;
+	}
+
+	@Override
+	public List<ClienteListResponse> getListaTodosClientes() {
+		log.info("[inicia] ClienteController - getListaTodosClientes");
+		List<ClienteListResponse> clienteList = clienteService.listaClientes();
+		log.info("[finaliza] ClienteController - getListaTodosClientes");
+		return clienteList;
 	}
 
 }
