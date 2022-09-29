@@ -1,6 +1,7 @@
 package br.com.xmob.clientepet.cliente.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +30,15 @@ public class ClienteInfraRepository implements ClienteRepository {
 		List<Cliente> listaClientes = clienteSpringDataJPARepository.findAll();
 		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
 		return listaClientes;
+	}
+
+	@Override
+	public Cliente buscaClientePorId(UUID idCliente) {
+		log.info("[inicia] ClienteInfraRepository - buscaClientePorId");
+		var cliente = clienteSpringDataJPARepository.findById(idCliente).orElseThrow(() -> 
+			new RuntimeException("Nenhum Cliente Encontrado") );
+		log.info("[finaliza] ClienteInfraRepository - buscaClientePorId");
+		return cliente;
 	}
 
 }
