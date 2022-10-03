@@ -3,10 +3,12 @@ package br.com.xmob.clientepet.cliente.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.xmob.clientepet.cliente.application.repository.ClienteRepository;
 import br.com.xmob.clientepet.cliente.domain.Cliente;
+import br.com.xmob.clientepet.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 @Repository
@@ -36,7 +38,7 @@ public class ClienteInfraRepository implements ClienteRepository {
 	public Cliente buscaClientePorId(UUID idCliente) {
 		log.info("[inicia] ClienteInfraRepository - buscaClientePorId");
 		var cliente = clienteSpringDataJPARepository.findById(idCliente).orElseThrow(() -> 
-			new RuntimeException("Nenhum Cliente Encontrado") );
+			APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
 		log.info("[finaliza] ClienteInfraRepository - buscaClientePorId");
 		return cliente;
 	}
