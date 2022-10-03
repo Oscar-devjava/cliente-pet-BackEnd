@@ -65,5 +65,6 @@ public class Cliente {
 		this.email = clienteAlteradoRequest.getEmail();
 		this.celular = clienteAlteradoRequest.getCelular();
 		this.telefone = clienteAlteradoRequest.getTelefone();
+		 this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
