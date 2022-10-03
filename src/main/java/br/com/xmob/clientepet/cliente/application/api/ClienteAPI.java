@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,5 +27,9 @@ public interface ClienteAPI {
 	@GetMapping("{idCliente}")
 	@ResponseStatus(value = HttpStatus.OK)
 	ClienteDetalhadoResponse getVisualizaDetalhesCliente(@PathVariable UUID idCliente);
+	
+	@PatchMapping("{idCliente}")
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	void patchAlteraCliente(@PathVariable UUID idCliente, @RequestBody @Valid ClienteAlteradoRequest clienteAlteradoRequest );
 	
 }
