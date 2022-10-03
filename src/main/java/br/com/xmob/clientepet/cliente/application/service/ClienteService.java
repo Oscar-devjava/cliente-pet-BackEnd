@@ -19,4 +19,6 @@ public interface ClienteService {
 
 	 void alteraCliente(UUID idCliente,ClienteAlteradoRequest clienteAlteradoRequest);
 
+	void deletaClienteById(UUID idCliente);
+
 }
