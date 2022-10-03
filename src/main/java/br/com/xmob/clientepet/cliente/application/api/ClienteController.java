@@ -40,11 +40,11 @@ public class ClienteController implements ClienteAPI {
 	}
 
 	@Override
-	public ClienteAlteradoResponse patchAlteraCliente(UUID idCliente) {
+	public void patchAlteraCliente(UUID idCliente,ClienteAlteradoRequest clienteAlteradoRequest) {
 		log.info("[inicia] ClienteController - patchAlteraCliente");
-		ClienteAlteradoResponse clienteAlterado = clienteService.alteraCliente(idCliente);
+		clienteService.alteraCliente(idCliente, clienteAlteradoRequest);
 		log.info("[finaliza] ClienteController - patchAlteraCliente");
-		return clienteAlterado;
+		
 	}
 
 }
